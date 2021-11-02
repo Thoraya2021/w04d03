@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
+import  { useState } from "react";
 import { useHistory } from "react-router";
 
 
 const Cards=()=>{
+  const history=useHistory();
 
-const [cards,SetCards]=useState
-({
+const [tower,SetCards]=useState
+([
+  {
     id:1,
     name: "Paris Eiffel Tower ",
     img: "https://th.bing.com/th/id/R.b39f31c325cf5117c3004d8d1a6d1106?rik=oyodz3%2bZnr%2flMw&pid=ImgRaw&r=0",
@@ -23,31 +26,42 @@ description:"this tower",
  name :" Khalifa Tower",
  img :"https://www.bing.com/images/search?view=detailV2&ccid=vJATNmak&id=328C123F436C51CB750682181AA4C0467798F049&thid=OIP.vJATNmakUe6eKZiTTnVdvgHaJ4&mediaurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.bc90133666a451ee9e2998934e755dbe%3frik%3dSfCYd0bApBoYgg%26riu%3dhttp%253a%252f%252fsuzzstravels.com%252fwp-content%252fuploads%252f2015%252f02%252fburj3.jpg%26ehk%3ddolttHvja3cYs1grc24zEJN4XZgCIdjrykIvAyppCwA%253d%26risl%3d%26pid%3dImgRaw%26r%3d0&exph=1560&expw=1170&q=khaifa+Tower+&simid=608028165095252162&FORM=IRPRST&ck=58669A640E2858CC5C2AB4F627B6D23A&selectedIndex=1&ajaxhist=0&ajaxserp=0",
 description:"this tower",
-  });
-  const history=useHistory();
+  },
+]);
+  
   const change=(id)=>{
           history.push(`/card/${id}`);
+          SetCards();
   }
 
 
-  
-
-
  
-return(
+return  (
 <div className="cards">
 
 {
-cards.map((item,i)=>{
+tower.map((item,i)=>{<div onClick={()=> change(item.id)}>
 
 <h1> {item.name} </h1> ;
 <img src={item.img}/>;
-
-<button onClick={item.description}>description</button>
-
+</div>
 })}
 
 </div>)
+
+const Searchbar = () => {
+
+  const [searchInput, setSearchInput] = useState("");
+
+  const handleChange = (e) => {
+      e.preventDefault();
+      setSearchInput(e.target.value);
+}};
+    if (searchInput.length > 0) {
+      tower.filter((item) => {
+        return tower.name.match(searchInput);
+    });
+    }
 
 
 }
