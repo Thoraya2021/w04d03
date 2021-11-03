@@ -13,15 +13,13 @@ function App () {
     <>
     <Nav/>
     <Switch>
-    <Route exact path="/" components={Home} />
-    <Route exact path="/About" components={About} />
-    <Route exact path="/contact" components={Contact} />
-    <Route exact path="/Cards" components={Cards} />
-    <Route exact path="/Card/:id" components={Card} />
-<Route path="*" render={()=>{
-return <h1>404</h1>;
+    <Route exact path="/home" component={Home} />
+    <Route exact path="/About" component={About} />
+    <Route exact path="/contact" component={Contact} />
+    <Route exact path="/Cards" component={Cards} />
+    <Route exact path="/Card/:id" component={Card} />
 
-    }}/>
+
    </Switch>
    </>
   );
