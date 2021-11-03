@@ -19,6 +19,7 @@ return (
               <Link to="/cards" className ="link">Cards</Link>
             </li>
           </ul>
+          <input class="searchbar">Search</input>
         </div>
 )
 }

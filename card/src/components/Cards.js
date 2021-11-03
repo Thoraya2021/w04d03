@@ -51,13 +51,13 @@ tower.map((item,i)=>{<div onClick={()=> change(item.id)}>
 
 const Searchbar = () => {
 
-  const [searchInput, setSearchInput] = useState("");
+  const [search, setSearchInput] = useState("");
 
   const handleChange = (e) => {
       e.preventDefault();
       setSearchInput(e.target.value);
 }};
-    if (searchInput.length > 0) {
+    if (search.length > 0) {
       tower.filter((item) => {
         return tower.name.match(searchInput);
     });
